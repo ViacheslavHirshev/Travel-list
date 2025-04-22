@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { TripItem } from "./PackingList";
 
-export default function Form()
+export default function Form({ onAddItem }: { onAddItem: (arg0: TripItem) => void })
 {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
@@ -20,7 +20,7 @@ export default function Form()
             packed: false
         }
 
-        console.log(newItem);
+        onAddItem(newItem);
         setDescription("");
         setQuantity(1);
     }
